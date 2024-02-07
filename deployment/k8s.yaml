@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: spoty-music-playlist
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playlist-api-deployment
+  namespace: spoty-music-playlist
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: playlist-api
+  template:
+    metadata:
+      labels:
+        app: playlist-api
+    spec:
+      containers:
+      - name: playlist-api-container
+        image: acrdevops.spotymusic.com/playlist-api:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "80Mi"
+            cpu: "25m"
+          limits:
+            memory: "800Mi"
+            cpu: "500m"        
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: playlist-api-hpa
+  namespace: spoty-music-playlist
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: playlist-api-deployment
+  minReplicas: 5
+  maxReplicas: 50
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 90
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 500     
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: playlist-api-service
+  namespace: spoty-music-playlist
+spec:
+  selector:
+    app: playlist-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
