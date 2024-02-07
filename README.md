@@ -1,6 +1,6 @@
-# SpotyMusic.Playlist.Api
+# SpotMusic.Playlist.Api
 
-Bem-vindo à API de Playlist da SpotyMusic, a plataforma que permite a gestão eficiente e personalizada de playlists. Desenvolvida pela SpotyMusic, esta API oferece funcionalidades robustas para criação, reprodução de playlists, atendendo às necessidades exclusivas da SpotyMusic.
+Bem-vindo à API de Playlist da SpotMusic, a plataforma que permite a gestão eficiente e personalizada de playlists. Desenvolvida pela SpotMusic, esta API oferece funcionalidades robustas para criação, reprodução de playlists, atendendo às necessidades exclusivas da SpotyMusic.
 
 ## Sumário
 
@@ -17,7 +17,7 @@ Bem-vindo à API de Playlist da SpotyMusic, a plataforma que permite a gestão e
 
 ## Autenticação
 
-A autenticação na SpotyMusic API é feita por meio de chave de API. Ao solicitar acesso à API, você receberá uma chave única que deve ser incluída no cabeçalho de todas as solicitações.
+A autenticação na SpotMusic API é feita por meio de chave de API. Ao solicitar acesso à API, você receberá uma chave única que deve ser incluída no cabeçalho de todas as solicitações.
 
 ```http
 Headers:
