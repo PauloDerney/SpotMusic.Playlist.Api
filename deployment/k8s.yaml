@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: spoty-music-playlist
+  name: spot-music-playlist
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: playlist-api-deployment
-  namespace: spoty-music-playlist
+  namespace: spot-music-playlist
 spec:
   replicas: 3
   selector:
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: playlist-api-container
-        image: acrdevops.spotymusic.com/playlist-api:latest
+        image: acrdevops.spotmusic.com/playlist-api:latest
         ports:
         - containerPort: 80
         resources:
@@ -35,7 +35,7 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: playlist-api-hpa
-  namespace: spoty-music-playlist
+  namespace: spot-music-playlist
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -61,7 +61,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: playlist-api-service
-  namespace: spoty-music-playlist
+  namespace: spot-music-playlist
 spec:
   selector:
     app: playlist-api
