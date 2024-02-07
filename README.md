@@ -9,7 +9,6 @@ Bem-vindo à API de Playlist da SpotyMusic, a plataforma que permite a gestão e
 - [Endpoints](#endpoints)
 - [Exemplos de Uso](#exemplos-de-uso)
 - [Contribuições](#contribuições)
-- [Contato](#contato)
 
 ## Recursos
 
