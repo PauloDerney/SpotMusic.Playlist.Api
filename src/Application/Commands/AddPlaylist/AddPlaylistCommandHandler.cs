@@ -1,6 +1,6 @@
 ﻿namespace Application.Commands.CreatePlaylist
 {
-    internal class CreatePlaylistCommandHandler
+    internal class AddPlaylistCommandHandler
     {
     }
 }
