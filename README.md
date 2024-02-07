@@ -70,16 +70,12 @@ POST /playlists
 
 ```http
 POST /playlists/123/musics/456
-{
-}
 ```
 
 ### Remoção de Música da Playlist
 
 ```http
 DELETE /playlists/123/musics/324
-{
-}
 ```
 
 ### Listagem de Playlists
