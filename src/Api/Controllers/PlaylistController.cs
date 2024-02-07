@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("spoty-music")]
+    [Route("spot-music")]
     public class PlaylistController : ControllerBase
     {
         private readonly ILogger<PlaylistController> _logger;
